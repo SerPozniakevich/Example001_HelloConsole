@@ -154,7 +154,7 @@ int year = Method3();
 
 int[] arr = {1, 5, 4, 3, 2, 6, 7, 1, 1};
 
-void PrintArray(int[] array) // метод "void", в качестве аргумента - массив
+void PrintArray(int[] array) // метод "void", печать (вывод массива) в качестве аргумента - массив
 {
     int count = array.Length; //получение кол-ва элементов
 
@@ -167,18 +167,19 @@ void PrintArray(int[] array) // метод "void", в качестве аргу�
 
 void SelectionSort(int[] array)
 {
-    for (int i = 0; i < array.Length -1 ; i++) // текущий элемент
+    for (int i = 0; i < array.Length -1 ; i++) // текущий элемент. Отнимаем 1 от array.Length так как проверку начинаем с i + 1
     {
         int minPosition = i;
 
-        for (int j = i + 1; j < array.Length; j++) // поиск минимального элемента
+        for (int j = i + 1; j < array.Length; j++) // поиск минимального элемента со второго элемента (i + 1)
+                                                    // по всему массиву  (array.Length)
         {
-            if (array[j] < array[minPosition]) minPosition = j; 
+            if (array[j] < array[minPosition]) minPosition = j; //сохранение выявленного Мин значения
         }
 
         int temporary = array[i];
-        array [i] = array[minPosition];
-        array[minPosition] = temporary;
+        array [i] = array[minPosition]; // обмен данных ежду переменными
+        array[minPosition] = temporary;//temporary - временная переменная
     }
 }
 
