@@ -170,3 +170,9 @@ string[,] table = new string[2, 5]; //Создание двумерного ма
 // {
 //     Console.WriteLine($"f({i}) = {Fibonacci(i)}");
 // }
+
+
+
+
+
+
