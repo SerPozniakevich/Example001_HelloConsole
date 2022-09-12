@@ -167,25 +167,36 @@ Console.Clear();
 
 //Рекурсия для просмотра содержания в папках.
 
-void CatalogInfo (string patch, string indent = "") //string (аргумент) patch - путь к текущей папке, 
-// indent - второй аргумент, делающий отступы, чтобы отслеживать структуру папки.
+// void CatalogInfo (string patch, string indent = "") //string (аргумент) patch - путь к текущей папке, 
+// // indent - второй аргумент, делающий отступы, чтобы отслеживать структуру папки.
+// {
+//     DirectoryInfo catalog = new DirectoryInfo(patch);
+
+//     DirectoryInfo[] catalogs = catalog.GetDirectories();
+//     for (int i = 0; i < catalogs.Length; i++)
+//     {
+//         System.Console.WriteLine($"{indent}{catalogs[i].Name}" );
+//         CatalogInfo(catalogs[i].FullName, indent + "  ");
+//     }
+
+//     FileInfo[] files = catalog.GetFiles();
+
+//     for (int i = 0; i < files.Length; i++)
+//     {
+//         System.Console.WriteLine($"{indent}{files[i].Name}" );
+//     }
+// }
+
+// string patch = @"C:/Users/User/Documents/Geekbrains/Examples";
+// CatalogInfo(patch);
+
+void Towers(string with = "1", string on = "3", string some = "2", int count = 4) // рекурсия для решения игры "Башни"
 {
-    DirectoryInfo catalog = new DirectoryInfo(patch);
-
-    DirectoryInfo[] catalogs = catalog.GetDirectories();
-    for (int i = 0; i < catalogs.Length; i++)
-    {
-        System.Console.WriteLine($"{indent}{catalogs[i].Name}" );
-        CatalogInfo(catalogs[i].FullName, indent + "  ");
-    }
-
-    FileInfo[] files = catalog.GetFiles();
-
-    for (int i = 0; i < files.Length; i++)
-    {
-        System.Console.WriteLine($"{indent}{files[i].Name}" );
-    }
+    if (count > 1) Towers(with, some, on, count - 1);
+    System.Console.WriteLine($"{with} >> {on}" );
+    if (count > 1) Towers(some, on, with, count - 1);
 }
 
-string patch = @"C:/Users/User/Documents/Geekbrains/Examples";
-CatalogInfo(patch);
+
+Towers();
+
