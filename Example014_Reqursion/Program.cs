@@ -190,13 +190,30 @@ Console.Clear();
 // string patch = @"C:/Users/User/Documents/Geekbrains/Examples";
 // CatalogInfo(patch);
 
-void Towers(string with = "1", string on = "3", string some = "2", int count = 4) // рекурсия для решения игры "Башни"
+// void Towers(string with = "1", string on = "3", string some = "2", int count = 4) // рекурсия для решения игры "Башни"
+// {
+//     if (count > 1) Towers(with, some, on, count - 1);
+//     System.Console.WriteLine($"{with} >> {on}" );
+//     if (count > 1) Towers(some, on, with, count - 1);
+// }
+
+
+// Towers();
+
+string emp = String.Empty;
+string[] tree = { emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3" };
+
+void InOrderTraversal(int pos = 1)
 {
-    if (count > 1) Towers(with, some, on, count - 1);
-    System.Console.WriteLine($"{with} >> {on}" );
-    if (count > 1) Towers(some, on, with, count - 1);
+    if (pos < tree.Length)
+    {
+        int left = 2 * pos;
+        int right = 2 * pos +1;
+        if (left < tree.Length && !String.IsNullOrEmpty(tree[left])) InOrderTraversal(left);
+        System.Console.WriteLine(tree[pos]);
+        if (right < tree.Length && !String.IsNullOrEmpty(tree[right])) InOrderTraversal(right);
+    }
 }
+InOrderTraversal();
 
-
-Towers();
 
